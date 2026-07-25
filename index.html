@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // ===== 1. CARRUSEL DE FOTOS SOLO PARA PÁGINAS DE PRODUCTO =====
     const carrusel = document.querySelector('.carrusel');
     const puntosContainer = document.querySelector('.puntos');
 
@@ -20,10 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const puntos = puntosContainer.querySelectorAll('.punto');
 
-        // Detectar scroll
+        // Detectar scroll para cambiar el puntito activo
         carrusel.addEventListener('scroll', () => {
             indiceActual = Math.round(carrusel.scrollLeft / carrusel.offsetWidth);
             puntos.forEach((p, i) => p.classList.toggle('activo', i === indiceActual));
         });
     }
+
+
+    // ===== 2. AQUÍ PUEDES PEGAR OTRAS FUNCIONES =====
+    // Ejemplo: menú, carrito, etc.
+    // Si no tienes nada más, déjalo así
+
+
 });
