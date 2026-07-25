@@ -57,21 +57,50 @@
     }
     .producto:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
     
-    .producto img { 
+    /* AQUI ESTA LO NUEVO DEL CARRUSEL */
+    .carrusel { 
+      display: flex; 
+      overflow-x: auto; 
+      scroll-snap-type: x mandatory; 
       width: 100%; 
-      aspect-ratio: 1 / 1; /* CUADRADO PERFECTO */
-      object-fit: contain; /* SE VE ENTERA */
+      border-radius: 10px;
+      scroll-behavior: smooth;
+      margin-bottom: 10px;
+    }
+    .carrusel::-webkit-scrollbar { display: none; } /* Oculta la barra */
+    .carrusel img { 
+      width: 100%; 
+      flex-shrink: 0; 
+      scroll-snap-align: start;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
       background: #f8f8f8;
-      border-radius: 10px; 
-      margin-bottom: 12px;
+      border-radius: 10px;
       padding: 12px;
     }
+    .puntos { 
+      display: flex; 
+      justify-content: center; 
+      gap: 8px; 
+      margin-bottom: 12px;
+    }
+    .punto { 
+      width: 10px; 
+      height: 10px; 
+      border-radius: 50%; 
+      background: #ccc; 
+      border: none; 
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .punto.activo { background: #ff2d55; transform: scale(1.2); }
+
     .producto h3 { font-size: 16px; margin-bottom: 8px; }
     .producto p { font-size: 20px; font-weight: bold; color: #ff2d55; margin-bottom: 12px; }
     
     .btn-vinted {
       display: block;
-      background: #09b1ba; /* Verde Vinted */
+      background: #09b1ba;
       color: white;
       padding: 12px;
       border-radius: 8px;
@@ -114,10 +143,10 @@
       <!-- PRODUCTO 1 -->
       <div class="producto">
        <div class="carrusel">
-    <img src="https://images1.vinted.net/t/01_0085a_oCpa6XUb3SL56boB7F7E91h1/f800/1784804606.webp?s=709efef2f02a81e363c2e72968b217ba3ccf06aa" alt="Nike Air jordan 1">
-    <img src="https://images1.vinted.net/t/06_005ad_qjqTi9aF3MXLXrpXGgECmkU5/f800/1784804606.webp?s=001ef53c3d1c92cb1a8c4bd9d264a80c104624e2" alt="Nike Air jordan 1">
-  </div>
-  <div class="puntos"></div>
+        <img src="https://images1.vinted.net/t/01_0085a_oCpa6XUb3SL56boB7F7E91h1/f800/1784804606.webp?s=709efef2f02a81e363c2e72968b217ba3ccf06aa" alt="Nike Air jordan 1">
+        <img src="https://images1.vinted.net/t/06_005ad_qjqTi9aF3MXLXrpXGgECmkU5/f800/1784804606.webp?s=001ef53c3d1c92cb1a8c4bd9d264a80c104624e2" alt="Nike Air jordan 1">
+      </div>
+      <div class="puntos"></div>
         <h3>Nike Air jordan 1</h3>
         <P> TALLA 36,5EU</P>
         <p>130€</p>
@@ -129,25 +158,25 @@
       <!-- PRODUCTO 2 -->
       <div class="producto">
         <div class="carrusel">
-    <img src="https://images1.vinted.net/t/01_00a04_UxNQ9KiTUBoB3s92iZzVZeN3/f800/1784650116.webp?s=aa5e54f608851432887b5d8b8781d593f7efbb46" alt="BAÑADO PEDRO DE HIERRO">
-    <img src="https://images1.vinted.net/t/06_00b13_9VrcMeTH4m5WXWPDM6prGECV/f800/1784650116.webp?s=e6c3ce2b063e57b3092cb0647a1b9a0ba8060038" alt="BAÑADOR PEDRO DE HIERRO">
-  </div>
-  <div class="puntos"></div>
-        <h3>BAÑADO PEDRO DE HIERRO </h3>
+        <img src="https://images1.vinted.net/t/01_00a04_UxNQ9KiTUBoB3s92iZzVZeN3/f800/1784650116.webp?s=aa5e54f608851432887b5d8b8781d593f7efbb46" alt="BAÑADO PEDRO DE HIERRO">
+        <img src="https://images1.vinted.net/t/06_00b13_9VrcMeTH4m5WXWPDM6prGECV/f800/1784650116.webp?s=e6c3ce2b063e57b3092cb0647a1b9a0ba8060038" alt="BAÑADOR PEDRO DE HIERRO">
+      </div>
+      <div class="puntos"></div>
+        <h3>BAÑADOR PEDRO DE HIERRO </h3>
         <P> TALLA XL</P>
         <p>40€</p>
         <a href="https://www.vinted.es/member/39343100-citytenni" target="_blank" class="btn-vinted">
-          COMPRAR EN VINTEDb
+          COMPRAR EN VINTED
         </a>
       </div>
 
       <!-- PRODUCTO 3 -->
       <div class="producto">
         <div class="carrusel">
-    <img src="https://images1.vinted.net/t/05_01556_dhdL3xMmVVeK45EoAfAajozT/f800/1784474010.webp?s=686d96820bd80415fb656ffbc4573074d76b42cf" alt="jordan 1">
-    <img src="https://images1.vinted.net/t/06_000ec_pfi7L3LUfB1ZBnTL9VFFtvoA/f800/1784474010.webp?s=19f775db0e30787d9202f49937d4c398e09306a1" alt="jordan 1">
-  </div>
-  <div class="puntos"></div> 
+        <img src="https://images1.vinted.net/t/05_01556_dhdL3xMmVVeK45EoAfAajozT/f800/1784474010.webp?s=686d96820bd80415fb656ffbc4573074d76b42cf" alt="jordan 1">
+        <img src="https://images1.vinted.net/t/06_000ec_pfi7L3LUfB1ZBnTL9VFFtvoA/f800/1784474010.webp?s=19f775db0e30787d9202f49937d4c398e09306a1" alt="jordan 1">
+      </div>
+      <div class="puntos"></div> 
         <h3>BAÑADOR PEDRO DE HIERRO</h3>
         <P> TALLA M</P>
         <p>40€</p>
@@ -169,6 +198,39 @@
       document.getElementById('catalogo').style.display = 'none';
       document.getElementById('inicio').style.display = 'flex';
     }
+
+    // AQUI ESTA LO NUEVO PARA QUE FUNCIONEN LOS PUNTITOS
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.producto').forEach(producto => {
+        const carrusel = producto.querySelector('.carrusel');
+        const puntosContainer = producto.querySelector('.puntos');
+        
+        if (carrusel && puntosContainer) {
+          const imagenes = carrusel.querySelectorAll('img');
+          
+          // Crear puntitos
+          imagenes.forEach((_, i) => {
+            const punto = document.createElement('button');
+            punto.classList.add('punto');
+            if (i === 0) punto.classList.add('activo');
+            punto.addEventListener('click', () => {
+              carrusel.scrollTo({ left: carrusel.offsetWidth * i, behavior: 'smooth' });
+            });
+            puntosContainer.appendChild(punto);
+          });
+          
+          const puntos = puntosContainer.querySelectorAll('.punto');
+          
+          // Marcar puntito activo al deslizar
+          carrusel.addEventListener('scroll', () => {
+            const indiceActual = Math.round(carrusel.scrollLeft / carrusel.offsetWidth);
+            puntos.forEach((p, i) => {
+              p.classList.toggle('activo', i === indiceActual);
+            });
+          });
+        }
+      });
+    });
   </script>
 
 </body>
