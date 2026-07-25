@@ -1,163 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>City Tenis - Zapatillas Originales</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Arial', sans-serif; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CityTenis - Tienda</title>
+<style>
+body { font-family: Arial; margin: 0; background: #f5f5f5; }
+header { background: #000; color: white; padding: 20px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; }
+.card { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
-    /* PÁGINA INICIO */
-    .inicio {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070') no-repeat center/cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      background-color: rgba(0,0,0,0.6);
-      background-blend-mode: darken;
-    }
-    .inicio h1 { font-size: 4rem; margin-bottom: 15px; text-shadow: 2px 2px 8px black; letter-spacing: 2px; }
-    .inicio p { font-size: 1.3rem; margin-bottom: 30px; }
-    .btn-catalogo {
-      background: #ff2d55;
-      color: white;
-      padding: 16px 45px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn-catalogo:hover { background: #e0003f; transform: scale(1.05); }
+/* CARRUSEL CON PUNTOS */
+.carrusel { position: relative; overflow: hidden; border-radius: 8px; }
+.carrusel img { width: 100%; display: none; }
+.carrusel img.activa { display: block; }
+.puntos { text-align: center; padding: 10px 0; }
+.punto { display: inline-block; width: 10px; height: 10px; background: #ccc; border-radius: 50%; margin: 0 4px; cursor: pointer; transition: 0.3s; }
+.punto.activo { background: #000; transform: scale(1.2); }
 
-    /* PÁGINA CATÁLOGO */
-    .catalogo { display: none; padding: 50px 20px; background: #f5f5f5; min-height: 100vh; }
-    .catalogo h2 { text-align: center; font-size: 2.5rem; margin-bottom: 40px; }
-    .grid-productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .producto {
-      background: white;
-      padding: 15px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
-    .producto:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-    
-    .producto img { 
-      width: 100%; 
-      aspect-ratio: 1 / 1; /* CUADRADO PERFECTO */
-      object-fit: contain; /* SE VE ENTERA */
-      background: #f8f8f8;
-      border-radius: 10px; 
-      margin-bottom: 12px;
-      padding: 12px;
-    }
-    .producto h3 { font-size: 16px; margin-bottom: 8px; }
-    .producto p { font-size: 20px; font-weight: bold; color: #ff2d55; margin-bottom: 12px; }
-    
-    .btn-vinted {
-      display: block;
-      background: #09b1ba; /* Verde Vinted */
-      color: white;
-      padding: 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-    .btn-vinted:hover { background: #078f96; }
-
-    .btn-volver {
-      display: block;
-      margin: 0 auto 40px auto;
-      background: black;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 16px;
-    }
-  </style>
+.btn { background: #000; color: white; padding: 10px; width: 100%; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+</style>
 </head>
 <body>
+<header><h1>🔥 CityTenis</h1></header>
 
-  <!-- PÁGINA 1: INICIO -->
-  <section class="inicio" id="inicio">
-    <h1>CITY TENIS</h1>
-    <p>Zapatillas originales. Envío 24-48h.</p>
-    <a href="#" class="btn-catalogo" onclick="mostrarCatalogo()">VER CATÁLOGO</a>
-  </section>
+<div class="grid">
 
-  <!-- PÁGINA 2: CATÁLOGO -->
-  <section class="catalogo" id="catalogo">
-    <button class="btn-volver" onclick="mostrarInicio()">← VOLVER AL INICIO</button>
-    <h2>NUESTRO CATÁLOGO</h2>
-    <div class="grid-productos">
-      
-      <!-- PRODUCTO 1: COPIA ESTE BLOQUE PARA CADA TENIS -->
-      <div class="producto">
-        <img src="Nike.jpg.jpeg" alt="Nike Air Max">
-        <h3>Nike AiR Jordan 1 </h3>
-        <h3>talla 36,5EU</h3>
-        <p>130€</p>
-        <a href="https://www.vinted.es/member/39343100-citytenni" target="_blank" class="btn-vinted">
-          COMPRAR EN VINTED
-        </a>
+  <!-- PRODUCTO 1 -->
+  <div class="card">
+    <div class="carrusel" data-id="1">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" class="activa">
+      <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500">
+      <img src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=500">
+      <div class="puntos">
+        <span class="punto activo" onclick="cambiarSlide(1,0)"></span>
+        <span class="punto" onclick="cambiarSlide(1,1)"></span>
+        <span class="punto" onclick="cambiarSlide(1,2)"></span>
       </div>
-
-      <!-- PRODUCTO 2 -->
-      <div class="producto">
-        <img src="Adida.jpg.jpeg" alt="Adidas Forum">
-        <h3>Bañador PEDRO DE HIERRO </h3>
-        <h3> talla XL</h3>
-        <p>40€</p>
-        <a href="https://www.vinted.es/member/39343100-citytenni" target="_blank" class="btn-vinted">
-          COMPRAR EN VINTED
-        </a>
-      </div>
-
-      <!-- PRODUCTO 3 -->
-      <div class="producto">
-        <img src="Puma.jpg.jpeg" alt="Jordan 1">
-        <h3>Bañador PEDRO DE HIERRO </h3>
-        <h3>Talla M</h3>
-        <p>40€</p>
-        <a href="https://www.vinted.es/member/39343100-citytenni" target="_blank" class="btn-vinted">
-          COMPRAR EN VINTED
-        </a>
-      </div>
-
     </div>
-  </section>
+    <h3>Nike Air Jordan 1 </h3>
+    <p>130€</p>
+    <button class="btn">Comprar en Vinted</button>
+  </div>
 
-  <script>
-    function mostrarCatalogo() {
-      document.getElementById('inicio').style.display = 'none';
-      document.getElementById('catalogo').style.display = 'block';
-      window.scrollTo(0,0);
-    }
-    function mostrarInicio() {
-      document.getElementById('catalogo').style.display = 'none';
-      document.getElementById('inicio').style.display = 'flex';
-    }
-  </script>
-
-</body>
-</html>
+  <!-- PRODUCTO 2 -->
+  <div class="card">
+    <div class="carrusel" data-id="2">
+      <img src="https://images.unsplash.com/photo-1600269452121-4ba266fbc175?w=500" class="activa">
+      <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=500">
+      <div class="puntos">
+        <span class="punto activo" onclick="cambiarSlide(2,0)"></span>
+        <span class="punto" onclick="cambiarSlide(2,1)"></span>
+      </div>
+    </
